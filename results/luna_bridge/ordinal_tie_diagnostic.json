@@ -1,0 +1,19 @@
+{
+  "synthetic_debug_fixture_only": true,
+  "normal_scores": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "quantile_threshold": 0.0,
+  "comparison": ">=",
+  "flag_rate": 1.0,
+  "meaning": "Quantile plus inclusive comparison does not enforce a 10% false-alarm rate for tied ordinal ratings."
+}

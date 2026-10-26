@@ -1,0 +1,8 @@
+{
+  "total_receipts": 144,
+  "new_statuses": {
+    "valid": 137,
+    "cli_timeout": 6,
+    "invalid_output": 1
+  }
+}

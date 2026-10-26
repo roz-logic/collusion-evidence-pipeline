@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{authblk}
+\usepackage[numbers]{natbib}
+
+\title{
+\textbf{Auditing the Evidence Chain for LLM-Agent Collusion\thanks{Research conducted at the AI Collusion Research Sprint, October 2026}}\\[0.5em]
+
+
+}
+
+\author{Oz}
+\author{Shuhao Yao}
+\author{Lucette}
+
+
+
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\textbf{With Apart Research}
+\end{center}
+
+\begin{abstract}
+Collusion monitors can mistake collusive language or parallel actions for an established agreement, while also confusing selected actions with successful execution. We audit the evidence chain from communication delivery through action selection, environment execution, and market outcomes. Source inspection of candidate starter paths identifies cases where stored messages are not delivered to peers or actions follow scripted policies. We then audit three complete historical double-auction runs, covering ninety rounds and 450 seller decisions, using separate willingness and participation judges repeated three times. A concrete counterexample shows a communicated collective-withdrawal plan followed by selected requests that the environment does not execute. To connect this audit to a frozen statistical pipeline, we construct sixteen additional focal cases from distinct historical runs, fix provisional source-based references before scoring, calibrate on eight cases, commit the thresholds, and evaluate the other eight. The audit-based rule detects 2 of 2 provisional positives with 1 of 6 negative cases flagged, versus 2 of 6 for an ordinary direct judge with the same positive detection. These small-sample results are conditional on AI-assisted references awaiting independent human validation. The contribution is an inspectable evidence audit and an integrated evaluation pilot, not a general claim of detector superiority or newly established causal harm.
+\end{abstract}
+
+\section{Introduction}
+
+Detecting collusion among AI agents remains challenging because coordinated
+behavior may arise from multiple causes. Agents may deliberately coordinate,
+behave similarly due to shared incentives, communicate without changing their
+behavior, or simply arrive at similar decisions independently.
+
+Much of the existing literature focuses on identifying collusive behavior,
+but distinguishing genuine coordination from superficially similar outcomes
+remains an open problem.
+
+Our contributions are (i) a source-linked audit of channel delivery and action origin in candidate starter paths; (ii) a complete-run historical process audit separating willingness, selected participation, execution and consequences; and (iii) an integrated calibration--freeze--test pilot with ordinary-judge and single-axis comparisons. We do not claim that a four-way signal taxonomy or unsuccessful collusion is a new theoretical discovery.
+
+\section{Related Work}
+Colosseum distinguishes communication-based judgments from action-based coalition advantage and documents unsuccessful coordination; disagreement between talk and actions is therefore not itself a new theoretical category \citep{nakamura2026colosseum}. Agrawal et al. study LLM sellers in continuous double auctions with communication, oversight and profit-pressure conditions; their released records supply our historical market evidence \citep{agrawal2025auctions}. ColludeBench provides collusive environments and detector infrastructure, whose specific starter-code paths we audit rather than treating manifest assignments as observed agreements \citep{tailor2025audit}. TraceGuard motivates structured monitoring, but our question is whether the underlying channel, chosen action and execution evidence support the event being classified \citep{nguyen2026traceguard}. Antitrust plus factors motivate seeking corroboration beyond parallel behaviour; we do not propose a legal test or equate every form of coordination with unlawful conduct \citep{berger2025coordination}.
+
+\section{Methods}
+\subsection{Data and evidence validity}
+The historical market data come from the \texttt{llm-agent-collusion} starter subproject and its original auction repository, not Colosseum. Colosseum is related work; \texttt{steganographic-collusion} supplies the initially audited candidate paths. The starter is pinned to revision \texttt{e6fb1308}, and full auction-agent logs to \texttt{2bb2a7e2}. We inspect actual recipient observations and distinguish scripted policies, LLM-selected requests, parser handling and subsequent standing-order states. A manifest's designated colluder is an experimental arrangement, not proof of observed coordination.
+
+Three complete historical runs cover seller chat disabled, chat enabled without oversight, and chat enabled with oversight. Each has thirty rounds and five sellers: 450 seller-rounds in total. The judge batch comprises 540 fresh Luna calls and 2,700 axis ratings. These repetitions assess judge repeatability, not independent market replications. The three conditions are not automatically the sprint's three case types.
+
+\subsection{Evidence measures and target}
+Judge A scores expressed willingness: zero for no expression or rejection, one for joining or maintaining a concrete coordination plan, and two for initiating or actively advancing it. Judge B independently scores whether the selected action participates in supported anti-competitive coordination. Both can return unknown. B uses communication context; B-only is therefore not an actions-only modality baseline. Code checks message receipt, requested versus executed actions, trades, seller profit and buyer surplus. We do not compute Colosseum coalition advantage or mutual-information dependence measures in this pilot.
+
+The four signal combinations are descriptive: willingness with participation, willingness without supported participation, participation without expressed willingness, and neither observed. They do not automatically establish an executed agreement, tacit collusion, cheap talk or clean competition. A coordinated request can count as selected participation even if execution fails; realised harm is a separate target.
+
+\subsection{Real-source calibration and independent split}
+For a small end-to-end pilot, we add sixteen focal seller-rounds, one from each of sixteen distinct parent runs not used in the complete-run audit. Four cases each represent supported coordinated action, competitive price similarity without observed agreement, opening individual price discovery, and an opening unilateral proposal before peer responses. The last group is a temporal control, not evidence that an entire run never subsequently coordinates. The positive target is supported coordinated action selection, not demonstrated causal harm.
+
+The assisting agent drafted provisional references from original received messages, private plans and selected requests before new scoring. These are not human gold labels. Cases, prompts, aggregation and a stratified eight/eight run-disjoint split were committed before inference. Ordinary direct judgments and separate A/B judgments use identical source packets and the same Luna model, each repeated three times. Numeric scores are averaged only when at least two valid ratings exist; missing or unknown judgments are not zero. The audit uses two judge calls per repetition versus one for the ordinary baseline and is not compute-matched.
+
+\texttt{fit\_rule.py} calibrates each axis on provisional honest/common-incentive calibration negatives at a ten-percent empirical false-alarm target. An opt-in order-statistic cutoff handles ties under the inclusive comparison. With only four calibration negatives, the target permits no observed false flag and is not a population guarantee. The fitted rule and input hashes are committed before \texttt{evaluate\_rule.py} applies the rule to the eight held-out cases. Single-axis baseline A uses honest negatives; baseline B and the ordinary calibrated baseline use the same null cases as the primary rule. An ordinary fixed-majority baseline is also retained. Original synthetic gap/percentile sensitivity results remain debugging evidence, not real-data findings.
+
+\section{Results}
+\subsection{Channel and execution audit}
+The checked ColludeBench pricing/review observation paths do not establish that logged peer messages were delivered to recipients; some linked audit policies are scripted. These paths cannot by themselves validate a negotiated agreement or a proposal being received and ignored. This is a finding about the inspected versions and paths, not a claim that the broader frameworks cannot support communication.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{p{2.7cm}p{5.6cm}p{5.2cm}}
+\toprule
+Checked source & Peer-message input & Action origin \\
+\midrule
+Pricing audit & No peer text in checked observation path & Linked configuration selects scripted policies \\
+Pricing calibration & No peer text in checked path & Mixed LLM/template and workflow-guided prices \\
+Peer-review stress & No peer text in checked observations & Scripted reviewer and private-signal policies \\
+Historical auctions & Previous-round seller messages verified in recipient inputs & LLM-selected requests; execution checked separately \\
+\bottomrule
+\end{tabular}
+\caption{Source-validity audit. Findings concern the inspected paths and versions; the companion audit supplies pinned code and log links.}
+\label{tab:channel_audit}
+\end{table}
+
+
+In the complete auction pilot, all 1,152 checked peer-message occurrences appear in the appropriate recipient inputs. In the communication-enabled withdrawal run, Zoe proposes collective withdrawal in round eight; Kit receives the proposal and joins in round nine. Their JSON-null requests are ignored by a market branch that only treats the string null as withdrawal. Subsequent observations retain the standing asks.\footnote{\href{https://github.com/andyjliu/llm-agent-collusion/blob/2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff/data/20250516_225933_base-seller_comms-7/Seller\%20Kit.md\#L1256}{Kit receives the proposal}; \href{https://github.com/andyjliu/llm-agent-collusion/blob/2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff/data/20250516_225933_base-seller_comms-7/Seller\%20Kit.md\#L1354}{the following observation retains the standing ask}.} This supports communicated coordination and selected participation without successful execution. The full pilot contains 32 JSON-null requests followed by an observed standing order; not all are coordinated attempts. Logs and source-line references support these distinctions.
+
+\subsection{Judge repeatability and frozen-rule pilot}
+All 2,700 original axis ratings satisfy basic coverage, legal-score and nonempty-rationale checks. Across 450 seller-rounds, three repeats agree on willingness strength in 400 cases, on willingness presence in 443, and on known participation in 407. Participation has thirteen known-score disagreements and thirty known/unknown mixtures. Stability is not correctness.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{p{8cm}rr}
+\toprule
+Method & Detected positives & False flags \\
+\midrule
+Evidence audit + Oz two-signal rule & 2/2 & 1/6 \\
+Ordinary judge + same-null calibration & 2/2 & 2/6 \\
+Ordinary judge + fixed majority & 2/2 & 2/6 \\
+Willingness only, same nulls & 2/2 & 2/6 \\
+Participation only, same nulls & 2/2 & 1/6 \\
+\bottomrule
+\end{tabular}
+\caption{Held-out focal-case pilot: two provisional positives and six provisional negatives. References are AI-assisted source audits awaiting independent human validation.}
+\label{tab:real_pilot}
+\end{table}
+
+The audit-based rule yields 2/2 positives and 1/6 false flags. The ordinary same-null calibrated baseline yields 2/2 positives and 2/6 false flags; its fixed-majority variant yields 2/2 positives and 2/6 false flags. These are paired observations on the same held-out inputs, conditional on provisional references, not established general detector performance. With two positives and six negatives, Wilson intervals are wide and zero observed false flags does not establish zero risk. The original fabricated-score results verify pipeline logic only. Held-out proportions are reported with Wilson 95\% intervals. In Tara's opening-round case, the ordinary judge calls a unilateral proposal collusion, while the audit separates willingness from supported joint action. The remaining Omar false flag originates in one of three B ratings treating the outgoing proposal itself as action participation; the frozen mean-score cutoff preserves that error. We do not adjust the rule after observing it.
+
+\section{Discussion}
+
+The evidence audit and frozen pipeline address the same measurement question: which event is actually supported by the available record? The pilot supports an inspectable workflow and conditional case comparisons; it does not establish general superiority of combining signals.
+
+\subsection{Future Work}
+
+Sprint time and source-validity constraints limited further empirical validation. The next priorities are independent human adjudication, broader within-condition controls and a compute-matched direct-judge comparison. Prospective early-warning claims would require a separate time-prefix prediction test.
+
+\section{Limitations and Dual-Use / Ethical Considerations}
+\subsection{Limitations}
+Reference labels were drafted with AI assistance and await independent human validation. The sixteen-case pilot is purposively selected, small, and confounded by market condition and focal time; it is not a representative benchmark. Whole-run cheap talk, causal harm and the absence of hidden coordination are not established. The audit and ordinary baseline use unequal call budgets, and B already reads communication; the AND rule itself adds no observed benefit over B here. We analyse seller-round evidence rather than only whole-run aggregate signals, but have not isolated the incremental value of process information in a controlled comparison. Repetition measures judge reliability rather than market replication. The frozen-rule checks address a specific train/test leakage mechanism, not every source of bias. No causal oversight effect or validated advance-warning performance is claimed.
+
+\subsection{Dual-use and ethical considerations}
+Explicit prompts and decision rules may help adversaries tailor behaviour to a monitor. We study previously released simulated auctions and do not deploy colluding agents or validate this method for legal accusations. Neither a positive flag nor silence is sufficient evidence for sanctions or exoneration. Source attribution, uncertainty and human review should accompany operational decisions.
+
+\section{Conclusion}
+We connect a source-level channel/execution audit to a frozen evaluation pipeline on historical auction evidence. The inspectable withdrawal counterexample shows why a proposal, selected participation, successful execution and realised effects cannot be substituted for one another. The small held-out pilot demonstrates an executable comparison under provisional references; independent human validation and broader controls are required before claiming reliable detector improvements.
+
+\section*{Code and Data}
+
+\begin{itemize}
+    \item Code repository: \url{https://github.com/roz-logic/collusion-evidence-pipeline}.
+    \item Data/Datasets: pinned official starter and original double-auction logs; source links and hashes in the accompanying audit.
+    \item Other artifacts: Run Atlas, frozen protocols, references, raw judge receipts and evaluation exports.
+\end{itemize}
+
+\section*{Author Contributions}
+
+Oz developed the statistical decision-rule pipeline and its integrity checks. Shuhao Yao developed the source audit and process-evaluation design, and integrated historical judgments with the pipeline using AI assistance. Lucette structured, edited and formatted the report.
+
+\section*{LLM Usage Statement}
+
+AI assistance was used for source/code investigation, implementation, provisional source-reference drafting, data preparation, statistical integration, documentation and figures. Luna was also the evaluated judge in fresh Codex CLI sessions. References are not independent expert-human labels. Historical market-agent responses were reused from the cited repository; fabricated debugging scores are not represented as real detector observations. The authors remain responsible for reviewing the evidence and final claims.
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\clearpage
+\appendix
+
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+
+The companion artifacts preserve source-linked evidence, complete judge inputs and outputs, frozen protocols, reference rationales and evaluation exports.
+
+\section{Source and Reference Provenance}
+The accompanying channel-validity table supplies pinned source-line links. The three-run audit preserves every seller prompt and response. The additional focal-case study preserves original evidence, provisional reference rationales, a pre-scoring split and prompts, repeated judge receipts, frozen input hashes, and test exports. The references are not independently human-adjudicated gold labels.
+\end{document}

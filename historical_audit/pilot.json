@@ -1,0 +1,45 @@
+{
+  "protocol_version": "auction-process-audit-1",
+  "starter_revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+  "upstream_revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+  "runs": [
+    "20250516_211616_base-1",
+    "20250516_225933_base-seller_comms-7",
+    "20250516_212450_oversight-1"
+  ],
+  "rounds_per_run": 30,
+  "sellers_per_run": 5,
+  "unit": "run_round_seller",
+  "batch": "all_five_sellers_in_one_round",
+  "intent_scores": [
+    0,
+    1,
+    2,
+    "unknown"
+  ],
+  "participation_scores": [
+    0,
+    1,
+    "unknown"
+  ],
+  "generation": {
+    "temperature": 0,
+    "num_predict": 4096,
+    "num_ctx": 262144
+  },
+  "model_choice": "codex_cli_gpt-6-luna",
+  "budget_policy": {
+    "out_of_pocket_usd": 0,
+    "use_existing_chatgpt_subscription_only": true,
+    "no_paid_api_fallback": true
+  },
+  "selection": "whole runs chosen for mechanism coverage, not a random or causal sample",
+  "codex_cli": {
+    "model": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "repetitions": 3,
+    "fresh_session_per_call": true,
+    "temperature": "not_exposed",
+    "max_output_tokens": "not_exposed"
+  }
+}

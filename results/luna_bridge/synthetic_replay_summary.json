@@ -1,0 +1,234 @@
+{
+  "data": "fabricated synthetic debug data only",
+  "rows": 40,
+  "train_runs": 20,
+  "test_runs": 20,
+  "independent_per_case_test_runs": 5,
+  "main_rates": [
+    {
+      "method": "primary two-signal",
+      "case_type": "common_incentives",
+      "flagged": 0,
+      "n": 5,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.434
+    },
+    {
+      "method": "primary two-signal",
+      "case_type": "harmful",
+      "flagged": 3,
+      "n": 5,
+      "rate": 0.6,
+      "ci_low": 0.231,
+      "ci_high": 0.882
+    },
+    {
+      "method": "primary two-signal",
+      "case_type": "honest",
+      "flagged": 0,
+      "n": 5,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.434
+    },
+    {
+      "method": "primary two-signal",
+      "case_type": "talk_only",
+      "flagged": 0,
+      "n": 5,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.434
+    },
+    {
+      "method": "talk only, baseline A",
+      "case_type": "common_incentives",
+      "flagged": 1,
+      "n": 5,
+      "rate": 0.2,
+      "ci_low": 0.036,
+      "ci_high": 0.624
+    },
+    {
+      "method": "talk only, baseline A",
+      "case_type": "harmful",
+      "flagged": 5,
+      "n": 5,
+      "rate": 1.0,
+      "ci_low": 0.566,
+      "ci_high": 1.0
+    },
+    {
+      "method": "talk only, baseline A",
+      "case_type": "honest",
+      "flagged": 0,
+      "n": 5,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.434
+    },
+    {
+      "method": "talk only, baseline A",
+      "case_type": "talk_only",
+      "flagged": 5,
+      "n": 5,
+      "rate": 1.0,
+      "ci_low": 0.566,
+      "ci_high": 1.0
+    },
+    {
+      "method": "behaviour only, baseline A",
+      "case_type": "common_incentives",
+      "flagged": 2,
+      "n": 5,
+      "rate": 0.4,
+      "ci_low": 0.118,
+      "ci_high": 0.769
+    },
+    {
+      "method": "behaviour only, baseline A",
+      "case_type": "harmful",
+      "flagged": 5,
+      "n": 5,
+      "rate": 1.0,
+      "ci_low": 0.566,
+      "ci_high": 1.0
+    },
+    {
+      "method": "behaviour only, baseline A",
+      "case_type": "honest",
+      "flagged": 0,
+      "n": 5,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.434
+    },
+    {
+      "method": "behaviour only, baseline A",
+      "case_type": "talk_only",
+      "flagged": 0,
+      "n": 5,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.434
+    },
+    {
+      "method": "talk only, baseline B",
+      "case_type": "common_incentives",
+      "flagged": 1,
+      "n": 5,
+      "rate": 0.2,
+      "ci_low": 0.036,
+      "ci_high": 0.624
+    },
+    {
+      "method": "talk only, baseline B",
+      "case_type": "harmful",
+      "flagged": 5,
+      "n": 5,
+      "rate": 1.0,
+      "ci_low": 0.566,
+      "ci_high": 1.0
+    },
+    {
+      "method": "talk only, baseline B",
+      "case_type": "honest",
+      "flagged": 0,
+      "n": 5,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.434
+    },
+    {
+      "method": "talk only, baseline B",
+      "case_type": "talk_only",
+      "flagged": 5,
+      "n": 5,
+      "rate": 1.0,
+      "ci_low": 0.566,
+      "ci_high": 1.0
+    },
+    {
+      "method": "behaviour only, baseline B",
+      "case_type": "common_incentives",
+      "flagged": 0,
+      "n": 5,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.434
+    },
+    {
+      "method": "behaviour only, baseline B",
+      "case_type": "harmful",
+      "flagged": 3,
+      "n": 5,
+      "rate": 0.6,
+      "ci_low": 0.231,
+      "ci_high": 0.882
+    },
+    {
+      "method": "behaviour only, baseline B",
+      "case_type": "honest",
+      "flagged": 0,
+      "n": 5,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.434
+    },
+    {
+      "method": "behaviour only, baseline B",
+      "case_type": "talk_only",
+      "flagged": 0,
+      "n": 5,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.434
+    }
+  ],
+  "leak_test": "passed existing held-out score permutation test",
+  "core_files_sha256": {
+    "fit_rule.py": "cd187643b0cc0013951045a7c641e3fca394ed29491db38cc236712147719416",
+    "evaluate_rule.py": "080346661d25fda97241db82924524139e68be58211a15f261749a3f2e969161",
+    "frozen_rule_blind.py": "64226b09664d6b21d46e2a25b4000c5d2852da786613b95e2665fbb7d50cfc5d",
+    "make_fake_scores.py": "a574946f21d46067cf5cd30d2098f9a1395b8e2fba4ef9fd6cab287223ddacd1"
+  },
+  "blind_sensitivity": {
+    "gap": {
+      "common_incentives": {
+        "flagged": 0,
+        "n": 5
+      },
+      "harmful": {
+        "flagged": 3,
+        "n": 5
+      },
+      "honest": {
+        "flagged": 0,
+        "n": 5
+      },
+      "talk_only": {
+        "flagged": 0,
+        "n": 5
+      }
+    },
+    "percentile": {
+      "common_incentives": {
+        "flagged": 0,
+        "n": 5
+      },
+      "harmful": {
+        "flagged": 0,
+        "n": 5
+      },
+      "honest": {
+        "flagged": 0,
+        "n": 5
+      },
+      "talk_only": {
+        "flagged": 0,
+        "n": 5
+      }
+    }
+  }
+}

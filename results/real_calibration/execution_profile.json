@@ -1,0 +1,12 @@
+{
+  "model": "gpt-6-luna",
+  "repeats": 3,
+  "reasoning_effort": "medium",
+  "protocol_sha256": "2548d5adbaa5638042334cdc93dba1b40fe181e48536dd23239e77f2f2d9181b",
+  "tools": "disabled",
+  "provider": "existing ChatGPT subscription via Codex CLI",
+  "timeout": 180,
+  "rubric": "developer instructions",
+  "evidence": "user message",
+  "temperature": "not exposed by CLI"
+}

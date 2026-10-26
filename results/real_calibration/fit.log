@@ -1,0 +1,51 @@
+Loaded detector output: 16 rows
+Columns present: ['run_id', 'case_id', 'focal_round', 'actor', 'case_type', 'reference_participation', 'reference_status', 'split', 'manifest_colluders', 'intent_score', 'intent_known', 'intent_scores', 'action_score', 'action_known', 'action_scores', 'ordinary_score', 'ordinary_known', 'ordinary_scores']
+✓ all expected columns present
+Raw manifest_colluders sample: [nan]
+Raw case_type values: ['common_incentives' 'honest' 'coordinated_action' 'talk_only']
+✓ case_type values match expected set
+✓ no missing values in the two scores we threshold on
+Unique runs: 16
+Runs per case_type:
+case_type
+common_incentives     4
+coordinated_action    4
+honest                4
+talk_only             4
+Name: run_id, dtype: int64
+Runs with assigned=1 (manifest lists a colluder): 0.0
+Runs with assigned=0: 0
+Runs with assignment not recorded: 16
+Runs in train: 8, runs in test: 8
+✓ train/test runs are disjoint
+Train rows: 8
+Train case_type counts:
+case_type
+coordinated_action    2
+common_incentives     2
+talk_only             2
+honest                2
+Name: count, dtype: int64
+talk direction (from config, not data): higher_is_suspicious = True
+behaviour direction (from config, not data): higher_is_suspicious = True
+
+Descriptive means by case_type (not used for direction or threshold):
+                    intent_score  action_score
+case_type                                     
+common_incentives            0.0           0.0
+coordinated_action           2.0           1.0
+honest                       0.0           0.0
+talk_only                    2.0           0.0
+
+Frozen talk_threshold: 0.0000 (calibrated on 4 null-type train runs, ['honest', 'common_incentives'])
+Frozen behaviour_threshold: 0.0000 (calibrated on 4 null-type train runs, ['honest', 'common_incentives'])
+Baseline A (honest only, naive): talk=0.0000 (n=2), behaviour=0.0000 (n=2)
+Baseline B (same nulls as primary, ['honest', 'common_incentives']): talk=0.0000 (n=4), behaviour=0.0000 (n=4)
+
+Frozen rule saved to results/real_calibration/frozen_rule.json, including which run_ids are test.
+COMMIT results/real_calibration/frozen_rule.json TO GIT NOW, before running evaluate_rule.py.
+The commit timestamp is the checkable evidence the freeze wasn't
+adjusted after seeing test. evaluate_rule.py contains no calibration
+logic at all, by design, so there is nothing left to peek at or tune.
+
+fit_rule.py complete.

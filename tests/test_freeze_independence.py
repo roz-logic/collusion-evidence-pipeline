@@ -3,7 +3,7 @@
 #
 # Leak test: proves the thresholds fit_rule.py freezes depend only on
 # train-run scores, not on anything in the test rows. Reruns
-# fit_rule.py twice, once on the real data, once on a copy where only
+# fit_rule.py twice, once on the original fixture, once on a copy where only
 # the test rows' two scores have been scrambled, and asserts the
 # threshold values are unchanged. If they weren't, that would mean
 # test data is leaking into calibration despite the code being

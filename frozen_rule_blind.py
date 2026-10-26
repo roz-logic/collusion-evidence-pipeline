@@ -1,34 +1,7 @@
-# Collusion detection: alternative thresholding method for Apart 2.3,
-# used as a sensitivity check against the null-calibrated primary rule
-# in fit_rule.py, not as a separately-claimed "more blind"
-# method. Both scripts are now equally blind to assigned, this one just
-# picks thresholds from the shape of the score distribution instead of
-# from a false-alarm target on known negatives, to show the primary
-# result isn't just an artefact of one threshold-picking choice.
-
-# Python version: 3.14.4
-# Required packages: pandas, numpy
-
-# DECISIONS LOG (decision, reason, date)
-# - this script no longer uses assigned anywhere, including for
-#   direction, which the earlier draft did via check_direction(), that
-#   was a real leak even though assigned wasn't used to set the
-#   threshold value itself. 2026-10-25
-# - both gap-method and percentile-method thresholds are computed and
-#   reported side by side now, previously percentile was computed and
-#   printed but never actually used downstream, which made it decorative
-#   rather than a real sensitivity check. 2026-10-25
-# - same stratified split as the primary script, same seed, so any
-#   difference in results between the two scripts is attributable to the
-#   thresholding method, not to a different train/test split. 2026-10-25
-# - renamed "false-flag rate overall" to "false-flag rate (non-harmful
-#   case_type)", the statistic was always computed only over
-#   non-harmful rows and the old label implied it covered everything
-#   including harmful runs, which it never did. 2026-10-25
-# - added a comment flagging that the gap method is fragile with this
-#   few train runs per case type, a single outlier score can set the
-#   whole threshold since it just finds the biggest jump in sorted
-#   values. 2026-10-25
+# ABOUTME: Largest-gap and percentile sensitivity on synthetic score fixtures.
+# Uses the primary run split and predefined score directions. Neither
+# threshold method uses manifest assignment as a calibration target.
+# Python dependencies: pandas and numpy.
 
 import pandas as pd
 import numpy as np
@@ -77,8 +50,7 @@ df["assigned"] = df[ASSIGNED_COL].apply(
 # =============================================================
 # PART 2: TRAIN / TEST SPLIT, IDENTICAL METHOD TO THE PRIMARY SCRIPT
 # =============================================================
-# same discipline as keeping a forecaster's full history together
-# rather than splitting mid-history (one of my recent projects)
+# Parent runs remain disjoint across calibration and test.
 
 split_rng = np.random.default_rng(SEED)
 

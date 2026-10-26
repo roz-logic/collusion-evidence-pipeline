@@ -1,0 +1,19 @@
+{
+  "stage": "heldout_evaluate",
+  "started_at": "2026-10-26T09:51:02.512239+00:00",
+  "completed_at": "2026-10-26T09:51:02.721784+00:00",
+  "frozen_rule_commit": "db7c217afaaf970f9d168e6321fe018fc866c0f5",
+  "command": [
+    "/Users/dexter/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "evaluate_rule.py",
+    "--input",
+    "results/real_calibration/scores_complete.csv",
+    "--rule",
+    "results/real_calibration/frozen_rule.json",
+    "--outdir",
+    "results/real_calibration/evaluation"
+  ],
+  "code_sha256": "a41a89cb9af800f2931df2f2c878f682ac9c122c1c71f7c36f4615f344622db4",
+  "rule_sha256": "1e2a141602a0d905271857017a50f0c376dcdc66a6202e1a2130b0680c34a078",
+  "threshold_refit": false
+}

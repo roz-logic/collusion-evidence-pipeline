@@ -1,0 +1,57 @@
+{
+  "requests_sha256": "fa3bfe76ed5c648bd209aa7298c428650f2b03fb684b2d37a793aa958b40953c",
+  "execution_profile": {
+    "provider": "codex_cli_chatgpt_login",
+    "model": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "cli_version": "codex-cli 0.162.1",
+    "requests_sha256": "fa3bfe76ed5c648bd209aa7298c428650f2b03fb684b2d37a793aa958b40953c",
+    "protocol_sha256": "ccec505c387a2a367103ad8cd75dc35720bbc15572d346a54a9347af5c183893",
+    "config_sha256": "2bedb4a64c5b4f389bb9394b819ab48f311aac2b1c0efa8237e1c194db684e3a",
+    "repetitions": 3,
+    "fresh_session_per_call": true,
+    "rubric_role": "developer_instructions",
+    "evidence_role": "user",
+    "temperature": "not_exposed_by_cli",
+    "max_output_tokens": "not_exposed_by_cli",
+    "wall_timeout_seconds": 300,
+    "tools_disabled": [
+      "shell_tool",
+      "multi_agent",
+      "plugins",
+      "remote_plugin",
+      "skill_search",
+      "web_search"
+    ],
+    "read_only": true,
+    "ignore_user_config": true
+  },
+  "result_receipts_sha256": "40c343a9ce3de47f87e0f16a8cea810fc87a2beeeaf80daa721d8f772383c6dc",
+  "source_preparation": {
+    "status": "prepared_not_run",
+    "model_calls": 0,
+    "runs": 3,
+    "rounds": 90,
+    "seller_round_units": 450,
+    "planned_judge_requests": 180,
+    "verified_sources": 28,
+    "peer_message_input_checks": 1152,
+    "protocol_sha256": "ccec505c387a2a367103ad8cd75dc35720bbc15572d346a54a9347af5c183893",
+    "config_sha256": "2bedb4a64c5b4f389bb9394b819ab48f311aac2b1c0efa8237e1c194db684e3a",
+    "source_manifest_sha256": "32fc6a78f3a3d317005daac3d9c7a44cf4d53d9162815a41c2052ebd583fdbfc",
+    "files_sha256": {
+      "run_facts.csv": "793ba800ef05640a5f7ef3a7bed1499f5762adf55d6ec11dde6c45fe0b0cec07",
+      "round_facts.csv": "1efd6d376021fb8a8bdc2623fa399ce7ad1f4a8f6e4f0bb2f851f48fdc8f858b",
+      "seller_round_facts.csv": "7ce16de9dc0906c623ecc311d79f8c3e92b6a67ba3e1b11af10e7ca3ece4ed2a",
+      "complete_originals.jsonl": "76d1f62fd8e5d77edccadd5dac21c1de700ba7e353cbcdb4568c7ce0bc897862"
+    },
+    "requests_sha256": "fa3bfe76ed5c648bd209aa7298c428650f2b03fb684b2d37a793aa958b40953c",
+    "max_request_characters": 160512,
+    "total_request_characters": 13367855,
+    "max_conservative_context_budget": 165948
+  },
+  "raw_artifacts_in_git": false,
+  "independent_reference_labels": 0,
+  "analysis_validation_mode": "basic_reanalysis",
+  "raw_model_outputs_modified": false
+}

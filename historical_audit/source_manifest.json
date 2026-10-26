@@ -1,0 +1,229 @@
+{
+  "scope": "public pinned evidence; no substantive labels",
+  "files": [
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/data/20250516_211616_base-1/experiment_metadata.json",
+      "sha": "9db10b9e567d506fa655df3136e1596b71795f84",
+      "size": 1259,
+      "cache_path": "starter/llm-agent-collusion/data/20250516_211616_base-1/experiment_metadata.json"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/data/20250516_212450_oversight-1/experiment_metadata.json",
+      "sha": "b979ee6f8759dbb59d07c5cb62d130817f4d5e46",
+      "size": 1263,
+      "cache_path": "starter/llm-agent-collusion/data/20250516_212450_oversight-1/experiment_metadata.json"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/data/20250516_225933_base-seller_comms-7/experiment_metadata.json",
+      "sha": "55f5a4f7e82cc17360ee189369e027d31f2bc9d2",
+      "size": 1272,
+      "cache_path": "starter/llm-agent-collusion/data/20250516_225933_base-seller_comms-7/experiment_metadata.json"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/data/20250516_212450_oversight-1/collusion_metrics.json",
+      "sha": "9b568bb2a229367b6f858d905b2b0b5f5f8a1bde",
+      "size": 15059,
+      "cache_path": "starter/llm-agent-collusion/data/20250516_212450_oversight-1/collusion_metrics.json"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/data/20250516_211616_base-1/auction_results.md",
+      "sha": "6557604ac261f42278a120a47ecfe106d0d5e65a",
+      "size": 20174,
+      "cache_path": "starter/llm-agent-collusion/data/20250516_211616_base-1/auction_results.md"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/data/20250516_212450_oversight-1/auction_results.md",
+      "sha": "562a26450297f95b7590fdae0d7fd5d813bad8d4",
+      "size": 24775,
+      "cache_path": "starter/llm-agent-collusion/data/20250516_212450_oversight-1/auction_results.md"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/data/20250516_211616_base-1/collusion_metrics.json",
+      "sha": "bd48062d1aa06f2ff4e07afaf512a74824626680",
+      "size": 15512,
+      "cache_path": "starter/llm-agent-collusion/data/20250516_211616_base-1/collusion_metrics.json"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/data/20250516_225933_base-seller_comms-7/auction_results.md",
+      "sha": "de61f1c9a136f3821df09c97e656966410550872",
+      "size": 74303,
+      "cache_path": "starter/llm-agent-collusion/data/20250516_225933_base-seller_comms-7/auction_results.md"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/data/20250516_225933_base-seller_comms-7/collusion_metrics.json",
+      "sha": "8f50c136d19c40ce0cfc2e5323f52aa90b0f4949",
+      "size": 13558,
+      "cache_path": "starter/llm-agent-collusion/data/20250516_225933_base-seller_comms-7/collusion_metrics.json"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/src/continuous_double_auction/prompt_templates/seller_prompt_base.jinja2",
+      "sha": "0cf96d9ce2e7fecbd8cb60b6e89363a1e1a2dd92",
+      "size": 5412,
+      "cache_path": "starter/llm-agent-collusion/src/continuous_double_auction/prompt_templates/seller_prompt_base.jinja2"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/src/continuous_double_auction/market/market.py",
+      "sha": "f153e27cbc541e60ea4b96c0872640be557cd1db",
+      "size": 16344,
+      "cache_path": "starter/llm-agent-collusion/src/continuous_double_auction/market/market.py"
+    },
+    {
+      "repository": "poseidon-research/collusion_hackathon",
+      "revision": "e6fb1308dae9cf97ae42aec1c5f7889d9e2291e8",
+      "path": "llm-agent-collusion/src/continuous_double_auction/market/agents.py",
+      "sha": "0987b16c8bed5bb8ed01587ed921da60c7ea1ce0",
+      "size": 13837,
+      "cache_path": "starter/llm-agent-collusion/src/continuous_double_auction/market/agents.py"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_211616_base-1/Seller Kai.md",
+      "sha": "3150da1dce2cefd1563dd51dc809247dc45f9ab1",
+      "size": 304081,
+      "cache_path": "upstream/data/20250516_211616_base-1/Seller Kai.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_211616_base-1/Seller Lena.md",
+      "sha": "d61fe479b96763d4b4f4947b98902384a3c0eb0e",
+      "size": 305352,
+      "cache_path": "upstream/data/20250516_211616_base-1/Seller Lena.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_211616_base-1/Seller Nia.md",
+      "sha": "34bad94af57771b2bb13901671b500d4282e8978",
+      "size": 305002,
+      "cache_path": "upstream/data/20250516_211616_base-1/Seller Nia.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_211616_base-1/Seller Tara.md",
+      "sha": "20983cb7c34e5fc0af88755e8db827d5cb5f665f",
+      "size": 306669,
+      "cache_path": "upstream/data/20250516_211616_base-1/Seller Tara.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_211616_base-1/Seller Wei.md",
+      "sha": "cbf696e5054e824f979f9cf248853894eb469e6a",
+      "size": 304634,
+      "cache_path": "upstream/data/20250516_211616_base-1/Seller Wei.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_212450_oversight-1/Overseer.md",
+      "sha": "1013c1f79771f6d61143f65022c937dddf9abd83",
+      "size": 91487,
+      "cache_path": "upstream/data/20250516_212450_oversight-1/Overseer.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_212450_oversight-1/Seller Amir.md",
+      "sha": "cc4fcb4ce677849b80afc5dfa1b9b077594a35ec",
+      "size": 319455,
+      "cache_path": "upstream/data/20250516_212450_oversight-1/Seller Amir.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_212450_oversight-1/Seller Lena.md",
+      "sha": "8cedfb15c70c0a7feb6ce930e5c956546867c9f4",
+      "size": 314584,
+      "cache_path": "upstream/data/20250516_212450_oversight-1/Seller Lena.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_212450_oversight-1/Seller Leo.md",
+      "sha": "9f077099a29065100f9d2cf842d37b581c9de237",
+      "size": 320028,
+      "cache_path": "upstream/data/20250516_212450_oversight-1/Seller Leo.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_212450_oversight-1/Seller Nia.md",
+      "sha": "95a0449dd389f906ad2e237277a4ad9935190a15",
+      "size": 312242,
+      "cache_path": "upstream/data/20250516_212450_oversight-1/Seller Nia.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_212450_oversight-1/Seller Zoe.md",
+      "sha": "7d950a20116ef40d5b265b8f3ad5bc2c5273664d",
+      "size": 309520,
+      "cache_path": "upstream/data/20250516_212450_oversight-1/Seller Zoe.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_225933_base-seller_comms-7/Seller Ana.md",
+      "sha": "e009194b19dbe3af4d9c43a89fdc71249fa926f7",
+      "size": 372581,
+      "cache_path": "upstream/data/20250516_225933_base-seller_comms-7/Seller Ana.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_225933_base-seller_comms-7/Seller Jun.md",
+      "sha": "f3d4a0421fbc4bf93621ca676cd52ae174a29c93",
+      "size": 373484,
+      "cache_path": "upstream/data/20250516_225933_base-seller_comms-7/Seller Jun.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_225933_base-seller_comms-7/Seller Kit.md",
+      "sha": "6189e6a45f0d9c682e00859afa9097976d16ae05",
+      "size": 370603,
+      "cache_path": "upstream/data/20250516_225933_base-seller_comms-7/Seller Kit.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_225933_base-seller_comms-7/Seller Raj.md",
+      "sha": "0905dbee84f331fb80e8193378e932129e2820ee",
+      "size": 376361,
+      "cache_path": "upstream/data/20250516_225933_base-seller_comms-7/Seller Raj.md"
+    },
+    {
+      "repository": "andyjliu/llm-agent-collusion",
+      "revision": "2bb2a7e22860160d1fddb5d2e5cb460cc6ec6aff",
+      "path": "data/20250516_225933_base-seller_comms-7/Seller Zoe.md",
+      "sha": "f0316863417a2ca94c72f678354ffd98e8caa5e0",
+      "size": 374794,
+      "cache_path": "upstream/data/20250516_225933_base-seller_comms-7/Seller Zoe.md"
+    }
+  ]
+}

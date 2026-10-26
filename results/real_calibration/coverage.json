@@ -1,0 +1,10 @@
+{
+  "all_cases": 16,
+  "complete_cases_all_methods": 16,
+  "excluded_case_ids": [],
+  "stable_scores": {
+    "intent": 14,
+    "action": 15,
+    "ordinary": 9
+  }
+}

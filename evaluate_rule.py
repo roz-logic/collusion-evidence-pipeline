@@ -1,13 +1,7 @@
 # evaluate_rule.py
-# Collusion detection: EVALUATE step only. Reads frozen_rule.json,
-# which should already be git committed (see fit_rule.py's printed
-# instruction), loads the same raw data, verifies it matches the file
-# fit_rule.py calibrated on via sha256 hash, filters to the
-# test_run_ids recorded in frozen_rule.json, classifies, sanity
-# cross-checks, evaluates primary rule against both single-axis
-# baseline variants, bootstraps CIs overall and per case type.
-# Contains no calibration logic at all, deliberately, that's the
-# whole point of splitting this out of fit_rule.py.
+# ABOUTME: Apply a committed frozen rule to hash-matched held-out data.
+# Reports primary and single-axis flags with Wilson binomial intervals.
+# Calibration is confined to fit_rule.py.
 
 # Python version: 3.14.4
 # Required packages: pandas, numpy
@@ -44,6 +38,7 @@ RUN_ID_COL = frozen["run_id_col"]
 ASSIGNED_COL = frozen["assigned_col"]
 CASE_TYPE_COL = frozen["case_type_col"]
 SEED = frozen["seed"]
+POSITIVE_CASE_TYPE = frozen.get("positive_case_type", "harmful")
 
 print(f"Loaded frozen rule from {FROZEN_RULE_PATH}")
 print(f"talk_threshold = {frozen['talk_threshold']:.4f}, behaviour_threshold = {frozen['behaviour_threshold']:.4f}")
@@ -67,7 +62,7 @@ for col in [RUN_ID_COL, TALK_SCORE_COL, BEHAVIOUR_SCORE_COL, ASSIGNED_COL, CASE_
     assert col in df.columns, f"expected column '{col}' not found"
 
 df["assigned"] = df[ASSIGNED_COL].apply(
-    lambda x: 1 if isinstance(x, str) and x.strip() not in ("", "[]") else 0
+    lambda x: (int(x.strip() != "[]") if isinstance(x, str) and x.strip() else np.nan)
 )
 
 test_run_ids = set(frozen["test_run_ids"])
@@ -125,9 +120,9 @@ print(crosscheck)
 print("\nCrosstab, case_type (rows) vs rule output (columns):")
 print(pd.crosstab(test[CASE_TYPE_COL], test["case_label"]))
 
-is_harmful = test[CASE_TYPE_COL] == "harmful"
+is_harmful = test[CASE_TYPE_COL] == POSITIVE_CASE_TYPE
 detection_rate = test.loc[is_harmful, "flag"].mean() if is_harmful.any() else float("nan")
-print(f"\nDetection rate on harmful runs: {detection_rate:.3f}")
+print(f"\nDetection rate on {POSITIVE_CASE_TYPE} cases: {detection_rate:.3f}")
 
 false_flag_by_type = test.loc[~is_harmful].groupby(CASE_TYPE_COL)["flag"].mean()
 print("False-flag rate by non-harmful case_type:")
@@ -136,9 +131,9 @@ print(false_flag_by_type)
 def score_single_axis(data, score_col, threshold, higher_is_suspicious, label_name):
     s = oriented(data[score_col], higher_is_suspicious)
     flag = (s >= threshold).astype(int)
-    is_h = data[CASE_TYPE_COL] == "harmful"
+    is_h = data[CASE_TYPE_COL] == POSITIVE_CASE_TYPE
     print(f"\nBaseline ({label_name}), threshold {threshold:.4f}:")
-    print(f"  detection rate on harmful: {flag[is_h].mean():.3f}" if is_h.any() else "  no harmful runs in test")
+    print(f"  detection rate on {POSITIVE_CASE_TYPE}: {flag[is_h].mean():.3f}" if is_h.any() else "  no positive cases in test")
     print("  false-flag rate by case_type:")
     print(flag[~is_h].groupby(data.loc[~is_h, CASE_TYPE_COL]).mean())
     return flag
@@ -151,18 +146,13 @@ print("\n--- Baseline variant B: same nulls as primary rule (same label info) --
 talk_flag_b = score_single_axis(test, TALK_SCORE_COL, frozen["talk_baseline_b_threshold"], frozen["talk_higher_is_suspicious"], "talk, variant B")
 behav_flag_b = score_single_axis(test, BEHAVIOUR_SCORE_COL, frozen["behaviour_baseline_b_threshold"], frozen["behaviour_higher_is_suspicious"], "behaviour, variant B")
 
-print("\nExpectation to check against: talk-only baselines should wrongly flag")
-print("talk_only runs, behaviour-only variant A should wrongly flag")
-print("common_incentives runs (variant B, by construction, should not,")
-print("since it's calibrated with the same trap-case knowledge as the")
-print("primary rule, that's the asymmetry being made visible here, not")
-print("something to hide).")
+print("\nBaseline A uses honest-only nulls; baseline B uses the primary rule's nulls.")
+print("The observed case-type counts determine each method's trade-off.")
 
 # =============================================================
 # PART 5: RATES BY CASE TYPE WITH WILSON 95% INTERVALS, SAVED TO CSV
 # =============================================================
-# Runs are treated as independent (one row per run). With 5 test runs per
-# case type the intervals are wide, and 0 of 5 has an upper bound of ~0.43.
+# Intervals use one row per parent run and can be wide for small groups.
 # Stop if there are repeated run IDs: row-level Wilson intervals would
 # otherwise incorrectly treat rows from the same run as independent.
 
@@ -209,6 +199,15 @@ tables = pd.concat([
     rate_table(test, behav_flag_b, "behaviour only, baseline B"),
 ], ignore_index=True)
 
+if frozen.get("ordinary_score_col"):
+    ordinary = frozen["ordinary_score_col"]
+    assert test[ordinary].notna().all(), "ordinary baseline missing on test"
+    test["ordinary_calibrated_flag"] = (test[ordinary] >= frozen["ordinary_threshold"]).astype(int)
+    test["ordinary_fixed_flag"] = (test[ordinary] >= frozen["ordinary_fixed_threshold"]).astype(int)
+    tables = pd.concat([tables,
+        rate_table(test, test["ordinary_calibrated_flag"], "ordinary direct judge, same-null calibration"),
+        rate_table(test, test["ordinary_fixed_flag"], "ordinary direct judge, fixed majority")], ignore_index=True)
+
 print(tables.to_string(index=False))
 
 tables.to_csv(
@@ -221,4 +220,5 @@ pd.crosstab(
     test["case_label"],
 ).to_csv(os.path.join(OUTDIR, "crosstab_primary.csv"))
 
+test.to_csv(os.path.join(OUTDIR, "test_predictions.csv"), index=False)
 print("\nevaluate_rule.py complete.")

@@ -1,0 +1,28 @@
+{
+  "stage": "fit",
+  "started_at": "2026-10-26T09:50:28.531006+00:00",
+  "completed_at": "2026-10-26T09:50:28.887145+00:00",
+  "command": [
+    "/Users/dexter/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "fit_rule.py",
+    "--input",
+    "results/real_calibration/scores_complete.csv",
+    "--out",
+    "results/real_calibration/frozen_rule.json",
+    "--talk-col",
+    "intent_score",
+    "--behaviour-col",
+    "action_score",
+    "--ordinary-col",
+    "ordinary_score",
+    "--positive-case-type",
+    "coordinated_action",
+    "--threshold-policy",
+    "empirical",
+    "--split-file",
+    "results/real_calibration/frozen_protocol.json"
+  ],
+  "code_sha256": "5ea4741456068bc8d9bfaa3b82ccf6d103a38aa64527570c50e84dc34ef22b98",
+  "rule_sha256": "1e2a141602a0d905271857017a50f0c376dcdc66a6202e1a2130b0680c34a078",
+  "evaluated_test": false
+}

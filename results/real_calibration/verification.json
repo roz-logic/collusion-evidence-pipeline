@@ -1,0 +1,18 @@
+{
+  "real_test_scores_replaced_with_999": "all thresholds unchanged",
+  "threshold_keys_checked": [
+    "talk_threshold",
+    "behaviour_threshold",
+    "talk_baseline_a_threshold",
+    "behaviour_baseline_a_threshold",
+    "talk_baseline_b_threshold",
+    "behaviour_baseline_b_threshold",
+    "threshold_policy",
+    "ordinary_threshold",
+    "ordinary_fixed_threshold"
+  ],
+  "input_swap": "rejected before scoring",
+  "synthetic_default_rates": "all 20 rows unchanged",
+  "unit_tests_passed": 31,
+  "source_files_git_verified": 48
+}
