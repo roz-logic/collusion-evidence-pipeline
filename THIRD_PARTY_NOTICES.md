@@ -1,6 +1,6 @@
 # Attribution and source boundaries
 
-The fork preserves Oz’s original MIT-licensed statistical pipeline and its copyright notice in `LICENSE` (roz-logic, 2026).
+The statistical pipeline originates from Oz (`roz-logic`). Its MIT licence and copyright notice are retained in `LICENSE` (2026).
 
 Historical auction evidence comes from Agrawal et al., *Evaluating LLM Agent Collusion in Double Auctions* (2025), the official Apart starter `poseidon-research/collusion_hackathon/llm-agent-collusion`, and linked `andyjliu/llm-agent-collusion` records. Pinned revisions, source URLs and content hashes accompany the evidence. Colosseum and ColludeBench are cited in their respective theoretical and source-audit roles; the historical auction logs are not relabelled as Colosseum data.
 

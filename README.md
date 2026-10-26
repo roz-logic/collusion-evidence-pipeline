@@ -50,7 +50,7 @@ uv run --with pandas --with numpy python evaluate_rule.py \
   --rule /tmp/replayed_rule.json --outdir /tmp/replayed_test
 ```
 
-The recorded rule was [committed before evaluation](https://github.com/Dexter-Yao/collusion-evidence-pipeline/commit/db7c217afaaf970f9d168e6321fe018fc866c0f5). Its input hash, split and execution receipts are preserved. Verification covers held-out-score independence, rejection of changed input bytes, 31 integrity tests, and reproduction of all 20 original synthetic rate-table rows.
+The recorded rule was [committed before evaluation](https://github.com/roz-logic/collusion-evidence-pipeline/commit/db7c217afaaf970f9d168e6321fe018fc866c0f5). Its input hash, split and execution receipts are preserved. Verification covers held-out-score independence, rejection of changed input bytes, 31 integrity tests, and reproduction of all 20 original synthetic rate-table rows.
 
 The `historical_audit` modules provide source preparation, judge execution, score summaries and saved-rating analysis. Fresh inference uses an authenticated Codex CLI; saved results can be inspected and replayed without it. `results/fake_debug/` contains synthetic implementation checks; `frozen_rule_blind.py` evaluates gap/percentile sensitivity on those fixtures.
 
@@ -62,4 +62,4 @@ The target is supported coordinated **action selection** at a focal seller-round
 
 **Oz** (`roz-logic`) — statistical pipeline and integrity checks. **Shuhao Yao** (`Dexter-Yao`) — source/process audit and real-data integration. **Lucette** (`cookkatelyn01-ui`) — manuscript structure, editing and formatting.
 
-AI assistance is disclosed in the [manuscript](paper/main.tex). The fork retains the original [MIT licence](LICENSE); [source attribution](THIRD_PARTY_NOTICES.md) identifies third-party material.
+AI assistance is disclosed in the [manuscript](paper/main.tex). The code retains the original [MIT licence](LICENSE); [source attribution](THIRD_PARTY_NOTICES.md) identifies third-party material.
