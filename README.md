@@ -31,6 +31,8 @@ References are AI-assisted source judgments fixed before scoring and not indepen
 - [Evaluation data flow](docs/auction-pipeline-integration.md) and [process protocol with exact judge prompts](docs/auction-process-evaluation.md).
 - [Market and assessment diagrams](docs/auction-diagrams-en.html).
 - [Real-source scores, frozen rule and test exports](results/real_calibration/).
+- **[Read the submitted paper (PDF)](paper/Auditing_the_Evidence_Chain_for_LLM_Agent_Collusion.pdf)**.
+
 
 ## Reproduce the held-out results
 
